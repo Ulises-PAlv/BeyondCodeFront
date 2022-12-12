@@ -1,0 +1,28 @@
+@import "../../app.component.scss";
+
+li {
+    list-style: none;
+}
+
+.add-member-modal {
+    width: 32rem;
+    height: 18.5rem;
+    overflow-y: scroll;
+    border-radius: 0.5rem;
+    background-color: rgb(254, 253, 252);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    padding: 1.5rem;
+
+    position: absolute;
+    z-index: 1000;
+    top: 19%;
+    left: 18.5%;
+
+    animation: fadeIn;
+    animation-duration: 1s;
+}
+
+.input-search {
+    width: 100% !important;
+}

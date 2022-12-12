@@ -1,0 +1,37 @@
+<app-menubar (selectOpt)="renderApp($event)"></app-menubar>
+<app-navbar (selectOpt)="renderApp($event)"></app-navbar>
+
+<div id="app-container">
+    <div [ngSwitch]="appOpt">
+        <app-memorandum *ngSwitchCase="'memorandum'"></app-memorandum>
+        <app-calendar *ngSwitchCase="'calendar'"></app-calendar>
+        <app-forum-a *ngSwitchCase="'forumA'"></app-forum-a>
+        <app-log *ngSwitchCase="'log'"></app-log>
+        <app-cou *ngSwitchCase="'m. use'"></app-cou>
+        <app-da *ngSwitchCase="'m. activity'"></app-da>
+        <app-dos *ngSwitchCase="'m. sequence'"></app-dos>
+        <app-dostate *ngSwitchCase="'m. states'"></app-dostate>
+        <app-cd *ngSwitchCase="'m. class'"></app-cd>
+        <app-repository *ngSwitchCase="'repository'"></app-repository>
+        <app-stack-design *ngSwitchCase="'stack'"></app-stack-design>
+        <app-sprint *ngSwitchCase="'sprint'"></app-sprint>
+        <app-backlog *ngSwitchCase="'backlog'"></app-backlog>
+        <app-forum-i *ngSwitchCase="'forumI'"></app-forum-i>
+        <app-binnacle *ngSwitchCase="'binnacle'"></app-binnacle>
+        <app-bugs *ngSwitchCase="'bugs'"></app-bugs>
+        <app-evidence *ngSwitchCase="'evidence'"></app-evidence>
+        <app-priority-fix *ngSwitchCase="'priority'"></app-priority-fix>
+        <app-dd *ngSwitchCase="'m. deploy'"></app-dd>
+        <app-versioned *ngSwitchCase="'versioned'"></app-versioned>
+        <app-documentation *ngSwitchCase="'documentation'"></app-documentation>
+        <app-perfective *ngSwitchCase="'perfective'"></app-perfective>
+        <app-adaptative *ngSwitchCase="'adaptative'"></app-adaptative>
+        <app-corrective *ngSwitchCase="'corrective'"></app-corrective>
+        <app-record *ngSwitchCase="'record'"></app-record>
+        <app-management *ngSwitchCase="'management'"></app-management>
+        <app-profile *ngSwitchCase="'profile'"></app-profile>
+        <div *ngSwitchDefault class="landing-app">
+            <h1>Test</h1>
+        </div>
+    </div>
+</div>
