@@ -30,7 +30,7 @@ export class SqlPetitions {
 
 export class NoSqlPetitions {
   qGet: any = {
-
+    backlog: '/Backlog'
   }
 
   qPost: any = {
@@ -40,7 +40,7 @@ export class NoSqlPetitions {
 
 export class ServerValues {
   mysql_url: string = 'http://localhost:3000';
-  atlas_url: string = '';
+  atlas_url: string = 'http://localhost:5000';
   storage_url: string = '';
   mailer: string = '';
 }

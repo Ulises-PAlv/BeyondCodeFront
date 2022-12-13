@@ -32,6 +32,7 @@ $BeyondCode-theme: mat.define-light-theme((
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($BeyondCode-theme);
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 /* You can add global styles to this file, and also import other style files */
 @import "node_modules/angular-notifier/styles";

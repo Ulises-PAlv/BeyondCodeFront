@@ -1,4 +1,8 @@
+import { BacklogsService } from 'src/app/services/nosql/backlogs.service';
 import { Component, OnInit } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
+import { ISprintGet, IBacklog } from 'src/app/interfaces/sprint.interface';
+
 
 @Component({
   selector: 'app-backlog',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BacklogComponent implements OnInit {
 
-  constructor() { }
+  constructor( private _sprint: BacklogsService, private _notifier: NotifierService ) { }
 
-  ngOnInit(): void {
+  public showNotification( type: string, message: string ): void {
+		this._notifier.notify( type, message );
+	}
+
+  async load() {
+    await this._sprint.getSprints().subscribe((res: any) => {
+      console.log(res);
+    });
   }
 
+  ngOnInit(): void {
+    this.load();
+  }
 }
