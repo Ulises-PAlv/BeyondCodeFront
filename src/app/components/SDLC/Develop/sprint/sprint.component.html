@@ -1,3 +1,131 @@
 <div class="container frame-size">
-    <p>sprint works!</p>
-</div>
+    <div class="row">
+        <div class="col-6">
+            <div class="my-3">
+                <h2>View</h2>
+            </div>
+            <hr>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#all">All sprints</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#current">Current Sprint</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane container active" id="all">
+                    <h3 class="my-3 mx-3"><i class="fas fa-history mx-2"></i>History Sprints</h3>
+                    <hr>
+
+                    <div class="tech-entry"> <!-- ?? *ngFor="let sprint of sprints" -->
+                        <h4 class="my-2"><span>Sprint Number:</span> sprint.sprintNumber</h4>
+                        <h4 class="my-2 mx-4"><span>Date:</span> sprint.date</h4>
+
+                        <div class="container p-3">
+                            <div class="row"> <!-- ?? *ngFor="let backlog of sprint.backlog" -->
+                                <p class="col-12"><span>Title: backlog.title </span></p>
+                                <p class="col-7">Status: <!-- !!
+                                    <span *ngIf="backlog.status == 0">In process...</span>
+                                    <span *ngIf="backlog.status == 1">Finalized</span>
+                                    !! -->
+                                </p>
+                                <p class="col-5"><span>Priority: </span>backlog.priority</p>
+
+                                <p class="col-12"><span>Description: </span>backlog.description</p>
+                                <hr>
+                                <p class="col-12"><span>Note: </span>backlog.note</p>
+                                <hr>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="tab-pane container fade" id="current">
+                    <h3 class="my-3 mx-3"><i class="fas fa-thumbtack mx-2"></i>Current Sprint</h3>
+                    <hr>
+
+                    <div class="tech-entry">
+                        <h4 class="my-2"><span>Sprint Number:</span> currentSpring.sprintNumber</h4>
+                        <h4 class="my-2 mx-4"><span>Date:</span> currentSpring.date</h4>
+
+                        <div class="container p-3">
+                            <div class="row"> <!-- ?? *ngFor="let backlog of currentSprint.backlog" -->
+                                <p class="col-12"><span>Title: backlog.title</span></p> <br>
+                                <p class="col-7">Status: <!-- !!
+                                    <span *ngIf="backlog.status == 0">In process...</span>
+                                    <span *ngIf="backlog.status == 1">Finalized</span>
+                                    !! -->
+                                </p>
+                                <p class="col-5"><span>Priority: </span>backlog.priority</p>
+
+                                <p class="col-12"><span>Description: </span>backlog.description</p><br>
+                                <p class="col-12"><span>Note: </span>backlog.note</p><br>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="my-3">
+                <h2>Create</h2>
+            </div>
+            <hr>
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#create">Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#add">Add Item</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane container active" id="create">
+                    <h3 class="my-3 mx-3">Backlog</h3>
+                    <hr>
+
+                    <button class="btn btn-dark btn-block"><i class="fas fa-cubes mx-2"></i>New Sprint</button>
+                    <!-- ?? (click)="createSprint()" -->
+                </div>
+                <div class="tab-pane container fade" id="add">
+                    <h3 class="my-3 mx-3">Add entry</h3>
+                    <hr>
+
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="inputEmail4">Title</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Epic / History/ Task">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Description</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="...">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Note</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputState">Priority</label>
+                            <select id="inputState" class="form-control">
+                                <option selected disabled>Choose...</option>
+                                <option>(1) Low</option>
+                                <option>(2) Medium</option>
+                                <option>(3) High</option>
+                                <option>(4) Critical</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-outline-dark btn-block my-3"><i class="fas fa-layer-group mx-2"></i> Add</button> <!-- ?? (click)="addTask()" -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

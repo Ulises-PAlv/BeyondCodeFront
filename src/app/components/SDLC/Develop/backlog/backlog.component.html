@@ -1,3 +1,26 @@
 <div class="container frame-size">
-    <p>backlog works!</p>
+    <div class="py-4 px-4 container">
+        <h2 class="my-3 mx-3">Product Backlog</h2>
+
+        <div class="tech-entry">
+            <h4 class="my-2 mx-4"><span>Date:</span> pBacklog.date</h4>
+            <hr>
+
+            <div class="container p-3">
+                <div class="row"> <!-- ?? *ngFor="let backlog of pBacklog.backlog" -->
+                    <h4 class="col-12"><span>Title: backlog.title</span></h4> <br>
+                    <h4 class="col-7">Status: <!-- !!
+                        <span *ngIf="backlog.status == 0">In process...</span>
+                        <span *ngIf="backlog.status == 1">Finalized</span>
+                        !! -->
+                    </h4>
+                    <h4 class="col-5"><span>Priority: </span>backlog.priority</h4>
+
+                    <h4 class="col-12"><span>Description: </span>backlog.description</h4><br>
+                    <h4 class="col-12"><span>Note: </span>backlog.note</h4><br>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
 </div>

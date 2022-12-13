@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IArchStackGet, ITechStack } from 'src/app/interfaces/arch-stack.interface';
 
 @Component({
   selector: 'app-stack-design',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stack-design.component.scss']
 })
 export class StackDesignComponent implements OnInit {
+  allStack: IArchStackGet | undefined;
+  front: ITechStack[] = [];
+  back: ITechStack[] = [];
+  more: ITechStack[] = [];
 
   constructor() { }
 
+
   ngOnInit(): void {
   }
-
 }

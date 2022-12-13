@@ -1,0 +1,77 @@
+@import "../../../../app.component.scss";
+
+.scroll-y {
+    overflow-y: scroll !important;
+}
+
+.forum-container {
+    padding: 1rem 4rem 1rem;
+    margin-top: -2rem;
+}
+
+.add-forum {
+    margin-bottom: 1.5rem;
+}
+
+.create-form {
+    z-index: 100;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+
+    width: 35rem;
+    height: auto;
+    padding: 1rem;
+    background-color: rgb(250, 250, 254);
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    animation: flipInX;
+    animation-duration: 0.8s;
+
+    text-align: center;
+}
+
+label {
+    font-weight: 600;
+}
+
+.chat {
+    z-index: 100;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+
+    width: 35rem;
+    height: 30rem;
+    padding: 1rem;
+    background-color: rgb(250, 250, 254);
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    animation: fadeIn;
+    animation-duration: 0.8s;
+
+    text-align: left;
+}
+
+.box {
+    padding: 1rem;
+    width: 95%;
+    height: 20rem;
+    margin: 0 auto !important;
+    overflow-y: scroll !important;
+
+    border: 1px solid rgba(0, 0, 0, 0.365);
+}
+
+.entry-text {
+    text-align: left;
+    font-size: 0.9rem;
+    color: black;
+}
+
+.usr-entry {
+    color: orangered;
+    font-weight: 500;
+}
