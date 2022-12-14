@@ -1,8 +1,6 @@
 import { BacklogsService } from 'src/app/services/nosql/backlogs.service';
 import { Component, OnInit } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
-import { ISprintGet, IBacklog } from 'src/app/interfaces/sprint.interface';
-
 
 @Component({
   selector: 'app-backlog',

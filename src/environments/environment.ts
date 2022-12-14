@@ -30,11 +30,46 @@ export class SqlPetitions {
 
 export class NoSqlPetitions {
   qGet: any = {
-    backlog: '/Backlog'
+    backlog: '/Backlog',
+    calendar: '/Calendar',
+    design: '/Design',
+    documents: '/Documents',
+    forum: '/Forum',
+    versioned: '/Versioned',
+    arraystack: '/ArchStack'
   }
 
   qPost: any = {
+    backlog: '/Backlog/create',
+    calendar: '/Calendar/create',
+    design: '/Design/create',
+    documents: '/Documents/create',
+    forum: '/Forum/create',
+    versioned: '/Versioned/create',
+    arraystack: '/ArchStack/create',
+    addBacklog: '/Backlog/add',
+    addEntry: '/Forum/add',
+    addTech: '/ArchStack/add'
+  }
 
+  qPut: any = {
+    backlog: '/Backlog/update',
+    calendar: '/Calendar/update',
+    design: '/Design/update',
+    documents: '/Documents/update',
+    forum: '/Forum/update',
+    versioned: '/Versioned/update',
+    arraystack: '/ArchStack/update'
+  }
+
+  qDelete: any = {
+    backlog: '/Backlog/delete:id',
+    calendar: '/Calendar/delete:id',
+    design: '/Design/delete:id',
+    documents: '/Documents/delete:id',
+    forum: '/Forum/delete:id',
+    versioned: '/Versioned/delete/:id',
+    arraystack: '/ArchStack/delete:id'
   }
 }
 
@@ -42,5 +77,5 @@ export class ServerValues {
   mysql_url: string = 'http://localhost:3000';
   atlas_url: string = 'http://localhost:5000';
   storage_url: string = '';
-  mailer: string = '';
+  mailer: string = 'http://localhost:3001';
 }

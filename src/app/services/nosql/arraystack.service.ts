@@ -1,14 +1,14 @@
 import { ServerValues, NoSqlPetitions } from 'src/environments/environment';
+import { IArchStackPost, ITechStackPost } from 'src/app/interfaces/arraystack.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { IEntriesPost, IForumPost } from 'src/app/interfaces/forum.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ForumService {
+export class arrayStackService {
 
   environment: any;
   petitions: any;
@@ -16,41 +16,41 @@ export class ForumService {
   constructor(private _http: HttpClient) {
     this.environment = new ServerValues();
     this.petitions = new NoSqlPetitions();
-    console.log('ForumService Loaded...')
+    console.log('arrayStackService Loaded...')
   }
 
-  getForum() {
-    const url = this.environment.atlas_url + this.petitions.qGet.forum;
+  getTechStack() {
+    const url = this.environment.atlas_url + this.petitions.qGet.arraystack;
     return this._http.get(url).pipe(map(data => {
       return data;
     }));
   }
 
-  postForum(body: IForumPost) {
-    const url = this.environment.atlas_url + this.petitions.qPost.forum;
+  postArchStack(body: IArchStackPost) {
+    const url = this.environment.atlas_url + this.petitions.qPost.arraystack;
     this._http.post(url, body).subscribe((res: any) => {
       console.log(res);
     });
   }
 
-  postEntry(body: IEntriesPost) {
-    const url = this.environment.atlas_url + this.petitions.qPost.addEntry;
+  postTech(body: ITechStackPost) {
+    const url = this.environment.atlas_url + this.petitions.qPost.addTech;
     this._http.post(url, body).subscribe((res: any) => {
       console.log(res);
     });
   }
 
-  putForum() {
-    const url = this.environment.atlas_url + this.petitions.qPut.forum;
+  putArchStack() {
+    const url = this.environment.atlas_url + this.petitions.qPut.arraystack;
     return this._http.put(url, null).pipe(map(data => {
       console.log(data);
     }));
   }
 
-  deleteForumById(id: string) {
-    const url = this.environment.atlas_url + this.petitions.qDelete.forum + id;
+  deleteArchStackById(id: string) {
+    const url = this.environment.atlas_url + this.petitions.qDelete.arraystack + id;
     return this._http.delete(url).pipe(map(data => {
-      console.log("Deleted forum with ID" + id);
+      console.log("Deleted TechStack with ID" + id);
     }));
   }
 

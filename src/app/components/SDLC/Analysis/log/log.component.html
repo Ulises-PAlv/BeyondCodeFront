@@ -4,25 +4,22 @@
 
     <div class="m-3">
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark my-2 my-sm-0" type="button">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #search>
+            <button class="btn btn-dark my-2 my-sm-0" type="button" (click)="getLog(search.value)">Search</button>
         </form>
     </div>
 
     <div class="log">
-        <h4 class="entrie" (click)="moreDetails(2)"><i class="fas fa-dollar-sign mx-2"></i>[coincidence.entryDate] coincidence.message</h4> <!-- ?? *ngFor="let coincidence of log" -->
+        <h4 class="entrie" (click)="moreDetails(coincidence)" *ngFor="let coincidence of coincidences"><i class="fas fa-dollar-sign mx-2"></i>[{{coincidence.entryDate}}] {{coincidence.message}}</h4>
     </div>
 </section>
 
 <div class="detail" *ngIf="bandLogDetail">
-    <h3>detail.entryCreator</h3>
+    <h3>{{detail.user[0].name}}</h3>
     <hr>
 
-    <h5><span>Date:</span> entry.entryDate</h5>
-    <p>entry.message</p>
-    <!-- !! si hay tiempo
-    <img src="" alt=""> entry.evidence
-    !! -->
+    <h5><span>Date:</span> {{detail.entryDate}}</h5>
+    <p>{{detail.message}}</p>
     <hr>
 
     <button class="btn btn-danger btn-block" (click)="closeLogDetail()">Close</button>

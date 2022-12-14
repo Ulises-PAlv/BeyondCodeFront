@@ -7,15 +7,15 @@
             <hr>
 
             <div class="forum container p-3">
-                <div class="forum-block"> <!-- ?? *ngFor="let forum of forums" -->
+                <div class="forum-block mb-4" *ngFor="let forum of forums">
                     <div class="card">
-                        <h2 class="card-header">forum.topic</h2>
+                        <h2 class="card-header">{{forum.topic}}</h2>
                         <div class="card-body my-0 py-0">
-                            <h3 class="card-title">forum.date</h3>
-                            <h3 class="card-title">forum.name_creator</h3>
+                            <h3 class="card-title">{{forum.date}}</h3>
+                            <h3 class="card-title">{{forum.user[0].name}}</h3>
                             <hr>
 
-                            <button class="btn btn-outline-dark btn-block mb-2" (click)="showChat()"><i class="fas fa-eye mx-2"></i>More details</button>
+                            <button class="btn btn-outline-dark btn-block mb-2" (click)="showChat(forum._id)"><i class="fas fa-eye mx-2"></i>More details</button>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="row">
         <div class="col-6">
-            <button type="button" class="btn btn-block btn-dark" >Create</button> <!-- ?? (click)="create(topic.value)" -->
+            <button type="button" class="btn btn-block btn-dark" (click)="createForum(topic.value)">Create</button>
         </div>
         <div class="col-6">
             <button type="button" class="btn btn-block btn-danger" (click)="closeCreateForm()">Close</button>
@@ -49,9 +49,9 @@
 <div class="chat" *ngIf="bandForumModal">
     <div class="container">
         <div class="box">
-            <p  class="entry-text"> <!-- ?? *ngFor="let entry of entries" -->
+            <p  class="entry-text" *ngFor="let entry of auxEntries">
                 <i class="fas fa-user"></i>
-                <span class="usr-entry mx-2">entry.usr_data.usrname</span>[entry.entryDate] : entry.message
+                <span class="usr-entry mx-2">{{entry.user[0].name}}</span>[{{entry.entryDate}}] : {{entry.message}}
             </p> <!-- ?? <i class="fas fa-user" *ngIf="entry.usr_data.role == 1"></i> -->
         </div>
 
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-3">
-                <button type="button" class="btn btn-block btn-dark" >Send</button> <!-- ?? (click)="addEntry(mssg.value)" -->
+                <button type="button" class="btn btn-block btn-dark" (click)="addEntry(mssg.value)">Send</button>
             </div>
         </div>
 

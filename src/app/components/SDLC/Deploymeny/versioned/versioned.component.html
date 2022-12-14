@@ -4,11 +4,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Version</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="1.0.0">
+                    <input type="text" class="form-control" #version placeholder="1.0.0">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Type</label>
-                    <select id="inputState" class="form-control">
+                    <select #type class="form-control">
                         <option selected disabled>Choose...</option>
                         <option>BETA</option>
                         <option>GAMMA</option>
@@ -19,9 +19,9 @@
             </div>
             <div class="form-group">
                 <label for="inputAddress">Description</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="">
+                <input type="text" class="form-control" #description placeholder="">
             </div>
-            <button type="button" class="btn btn-outline-dark btn-block"><i class="fas fa-code-branch mx-2"></i>Add version</button>
+            <button type="button" class="btn btn-outline-dark btn-block" (click)="addVersion(version.value, type.value, description.value)"><i class="fas fa-code-branch mx-2"></i>Add version</button>
         </form>
 
         <div class="col-12 my-3">
@@ -29,13 +29,11 @@
             <hr>
 
             <div class="container box p-3">
-                <div class="row" > <!-- ?? *ngFor="let head of log" -->
-                    <h5 class="col-6">Version: head.version</h5>
-                    <h5 class="col-6">head.type</h5>
-                    <h5 class="col-12">Description: head.description</h5>
+                <div class="row my-3" *ngFor="let head of log">
+                    <h5 class="col-6">Version: {{head.version}}</h5>
+                    <h5 class="col-6">{{head.type}}</h5>
+                    <h5 class="col-12">Description: {{head.description}}</h5>
                     <button class="btn btn-outline-danger btn-block col-12"><i class="far fa-file-pdf"></i></button>
-                    <hr>
-
                 </div>
             </div>
         </div>

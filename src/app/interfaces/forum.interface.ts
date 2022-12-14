@@ -1,4 +1,4 @@
-export class entries {
+export class IEntriesGet {
     entryID: number = 0;
     message: string = '';
     entryDate: string = '';
@@ -6,11 +6,28 @@ export class entries {
     evidence: string = '';
 }
 
-export class IForum {
+export class IEntriesPost {
+    entryID: number = 0;
+    message: string = '';
+    entryDate: string = '';
+    entryCreator: string = '';
+    evidence: string = '';
+    id: string = '';
+}
+
+export class IForumGet {
     _id: any = {};
     topic: string = '';
     date: string = '';
     creator: string = '';
     type: string = '';
-    entries: entries[] = [];
+    entries: IEntriesGet[] = [];
+}
+
+export class IForumPost {
+    topic: string = '';
+    date: string = '';
+    creator: string = '';
+    type: string = '';
+    entries: IEntriesGet[] = [];
 }

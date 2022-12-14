@@ -2,13 +2,13 @@ import { ServerValues, NoSqlPetitions } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { IEntriesPost, IForumPost } from 'src/app/interfaces/forum.interface';
+import { IBacklogPost, ISprintPost } from 'src/app/interfaces/backlog.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ForumService {
+export class BacklogService {
 
   environment: any;
   petitions: any;
@@ -16,41 +16,42 @@ export class ForumService {
   constructor(private _http: HttpClient) {
     this.environment = new ServerValues();
     this.petitions = new NoSqlPetitions();
-    console.log('ForumService Loaded...')
+    console.log('BacklogService Loaded...')
   }
 
-  getForum() {
-    const url = this.environment.atlas_url + this.petitions.qGet.forum;
+  getSprints() {
+    const url = this.environment.atlas_url + this.petitions.qGet.backlog;
     return this._http.get(url).pipe(map(data => {
+      console.log(data);
       return data;
     }));
   }
 
-  postForum(body: IForumPost) {
-    const url = this.environment.atlas_url + this.petitions.qPost.forum;
+  postSprint(body: ISprintPost) {
+    const url = this.environment.atlas_url + this.petitions.qPost.backlog;
     this._http.post(url, body).subscribe((res: any) => {
       console.log(res);
     });
   }
 
-  postEntry(body: IEntriesPost) {
-    const url = this.environment.atlas_url + this.petitions.qPost.addEntry;
+  postBacklog(body: IBacklogPost) {
+    const url = this.environment.atlas_url + this.petitions.qPost.addBacklog;
     this._http.post(url, body).subscribe((res: any) => {
       console.log(res);
     });
   }
 
-  putForum() {
-    const url = this.environment.atlas_url + this.petitions.qPut.forum;
+  putSprints() {
+    const url = this.environment.atlas_url + this.petitions.qPut.backlog;
     return this._http.put(url, null).pipe(map(data => {
       console.log(data);
     }));
   }
 
-  deleteForumById(id: string) {
-    const url = this.environment.atlas_url + this.petitions.qDelete.forum + id;
+  deleteSprintById(id: string) {
+    const url = this.environment.atlas_url + this.petitions.qDelete.backlog + id;
     return this._http.delete(url).pipe(map(data => {
-      console.log("Deleted forum with ID" + id);
+      console.log("Deleted sprint with ID" + id);
     }));
   }
 

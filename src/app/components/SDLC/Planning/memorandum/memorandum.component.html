@@ -6,34 +6,36 @@
         <form>
             <div class="form-group row">
                 <div class="col-6">
-                    <label for="topicLab">Topic</label>
-                    <input type="text" class="form-control" id="topicLab" placeholder="Type the meeting topic">
+                    <label for="topic">Topic</label>
+                    <input type="text" class="form-control" #topic placeholder="Type the meeting topic">
                 </div>
                 <div class="col-4">
                     <mat-form-field appearance="legacy" class="pt-3 pl-2">
                         <mat-label>Choose a date meeting</mat-label>
-                        <input matInput [matDatepicker]="picker">
+                        <input matInput #date [matDatepicker]="picker">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                 </div>
                 <div class="col-2 pt-3">
-                    <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+                    <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon" (click)="sendMemo(topic.value, date.value, message.value)">
                         <mat-icon>description</mat-icon>
                     </button>
                 </div>
             </div>
             <div class="form-group">
                 <label for="selectColabsLab">Select the members</label>
-                <select class="form-control" id="selectColabsLab" (change)="addToList($event)">
+                <select class="form-control" #member (change)="addToList(member.value)">
                     <option *ngFor="let user of arrayUsers">{{user.name}}</option>
                 </select>
                 <div class="row mt-2 mb-0">
-                    <div class="col-8 px-3 my-2 py-1">
+                    <div class="col-8 px-3 my-2 py-2">
                         <div class="member-box">
                             <ul>
-                                <li *ngFor="let user of membersList">{{user.name}}</li>
+                                <li *ngFor="let user of membersList">
+                                    <p>{{user}}</p>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -49,10 +51,10 @@
                                 <div class="tooltip">
                                     <span>Developers</span>
                                 </div>
-                                <i class="fas fa-user-edit mr-3"></i> 8
+                                <i class="fas fa-user-edit mr-3"></i> 3
                             </li>
                             <li>
-                                <i class="fas fa-user-shield mr-3"></i> 3
+                                <i class="fas fa-user-shield mr-3"></i> 2
                                 <div class="tooltip">
                                     <span class="tooltiptext">Testers</span>
                                 </div>
@@ -63,7 +65,7 @@
                 </div>
             </div>
             <div class="form-group mt-0">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Put your text here!</textarea>
+                <textarea class="form-control" #message rows="3">Put your text here!</textarea>
             </div>
         </form>
     </section>
